@@ -4,7 +4,7 @@ import BrokerCTA from "../BrokerCTA";
 import AdUnit from "../AdUnit";
 import { TOOLS, TOOL_ORDER, type ToolContent } from "./tools";
 
-const BASE = "https://www.possize.com";
+const BASE = "https://possize.com";
 
 function structuredData(t: ToolContent) {
   const url = `${BASE}/${t.slug}`;

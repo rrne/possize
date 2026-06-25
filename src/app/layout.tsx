@@ -19,7 +19,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.possize.com"),
+  metadataBase: new URL("https://possize.com"),
   title: {
     default: "PosSize — Free Trading Calculators",
     template: "%s",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "PosSize",
-    url: "https://www.possize.com",
+    url: "https://possize.com",
     title: "PosSize — Free Trading Calculators",
     description:
       "Free, no-signup trading calculators: position size, risk/reward, compound interest, profit/loss, pip and margin.",

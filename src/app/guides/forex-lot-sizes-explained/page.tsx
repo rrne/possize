@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Forex Lot Sizes Explained — PosSize",
     description: "A clear breakdown of forex lot sizes — standard, mini, micro and nano — how many units each holds, and how lot size sets your pip value and risk.",
-    url: "https://www.possize.com/guides/forex-lot-sizes-explained",
+    url: "https://possize.com/guides/forex-lot-sizes-explained",
     siteName: "PosSize",
     type: "article",
   },

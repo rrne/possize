@@ -5,7 +5,7 @@ import { JsonLd } from "../seo/JsonLd";
 import { TOOLS } from "../seo/tools";
 import { GUIDES, GUIDE_ORDER, type Guide } from "./content";
 
-const BASE = "https://www.possize.com";
+const BASE = "https://possize.com";
 
 function structuredData(g: Guide) {
   const url = `${BASE}/guides/${g.slug}`;

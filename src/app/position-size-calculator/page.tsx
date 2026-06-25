@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Position Size Calculator — PosSize",
     description:
       "Calculate the optimal position size based on your account size and risk tolerance. Free trading tool.",
-    url: "https://www.possize.com/position-size-calculator",
+    url: "https://possize.com/position-size-calculator",
     siteName: "PosSize",
     type: "website",
   },

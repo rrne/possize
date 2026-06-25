@@ -5,7 +5,7 @@ import BrokerCTA from "./BrokerCTA";
 import { JsonLd } from "./seo/JsonLd";
 import { TOOLS, TOOL_ORDER } from "./seo/tools";
 
-const BASE = "https://www.possize.com";
+const BASE = "https://possize.com";
 
 const homeFaqs = [
   {

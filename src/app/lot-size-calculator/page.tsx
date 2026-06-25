@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Lot Size Calculator — PosSize",
     description:
       "Calculate the exact forex lot size for a fixed risk based on your stop-loss in pips. Free trading tool.",
-    url: "https://www.possize.com/lot-size-calculator",
+    url: "https://possize.com/lot-size-calculator",
     siteName: "PosSize",
     type: "website",
   },

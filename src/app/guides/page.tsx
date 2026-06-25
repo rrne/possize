@@ -4,7 +4,7 @@ import Nav from "../Nav";
 import { JsonLd } from "../seo/JsonLd";
 import { GUIDES, GUIDE_ORDER } from "./content";
 
-const BASE = "https://www.possize.com";
+const BASE = "https://possize.com";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/guides" },
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Trading Guides — PosSize",
     description:
       "Plain-English guides on position sizing, risk/reward, and forex lot sizes.",
-    url: "https://www.possize.com/guides",
+    url: "https://possize.com/guides",
     siteName: "PosSize",
     type: "website",
   },

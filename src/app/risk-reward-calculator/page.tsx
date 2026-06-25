@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Risk Reward Calculator — PosSize",
     description:
       "Calculate your risk/reward ratio and minimum win rate. Free trading tool.",
-    url: "https://www.possize.com/risk-reward-calculator",
+    url: "https://possize.com/risk-reward-calculator",
     siteName: "PosSize",
     type: "website",
   },

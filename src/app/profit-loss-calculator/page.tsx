@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Profit Loss Calculator — PosSize",
     description:
       "Calculate exact profit or loss on any trade including fees. Free trading tool.",
-    url: "https://www.possize.com/profit-loss-calculator",
+    url: "https://possize.com/profit-loss-calculator",
     siteName: "PosSize",
     type: "website",
   },

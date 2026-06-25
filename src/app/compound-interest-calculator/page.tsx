@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Compound Interest Calculator — PosSize",
     description:
       "Visualize your trading account growth with compounding. Free trading tool.",
-    url: "https://www.possize.com/compound-interest-calculator",
+    url: "https://possize.com/compound-interest-calculator",
     siteName: "PosSize",
     type: "website",
   },

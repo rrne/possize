@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Break-Even Calculator — PosSize",
     description:
       "Calculate the break-even price of any trade including commissions and fees. Free trading tool.",
-    url: "https://www.possize.com/breakeven-calculator",
+    url: "https://possize.com/breakeven-calculator",
     siteName: "PosSize",
     type: "website",
   },

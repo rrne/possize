@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "What Is a Good Risk/Reward Ratio? — PosSize",
     description: "Understand risk/reward ratios, what counts as 'good', and how R:R and win rate combine to decide whether a strategy is actually profitable.",
-    url: "https://www.possize.com/guides/what-is-a-good-risk-reward-ratio",
+    url: "https://possize.com/guides/what-is-a-good-risk-reward-ratio",
     siteName: "PosSize",
     type: "article",
   },

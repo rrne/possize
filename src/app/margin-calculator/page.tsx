@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Margin Calculator — PosSize",
     description:
       "Calculate the required margin and notional value for any leveraged position. Free trading tool.",
-    url: "https://www.possize.com/margin-calculator",
+    url: "https://possize.com/margin-calculator",
     siteName: "PosSize",
     type: "website",
   },

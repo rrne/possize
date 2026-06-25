@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.possize.com/sitemap.xml
+Sitemap: https://possize.com/sitemap.xml

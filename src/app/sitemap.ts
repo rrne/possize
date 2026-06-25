@@ -4,7 +4,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   // Must match the canonical host used everywhere else (metadataBase, robots).
-  const baseUrl = "https://www.possize.com";
+  const baseUrl = "https://possize.com";
   
   return [
     {

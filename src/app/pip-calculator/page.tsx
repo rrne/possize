@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: "Pip Calculator — PosSize",
     description:
       "Calculate the monetary value of a pip for any currency pair and lot size. Free forex trading tool.",
-    url: "https://www.possize.com/pip-calculator",
+    url: "https://possize.com/pip-calculator",
     siteName: "PosSize",
     type: "website",
   },

@@ -158,7 +158,7 @@ export default function Home() {
           className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase border px-3 py-1.5 rounded-sm mb-8"
           style={{
             color: "var(--accent)",
-            borderColor: "rgba(0,212,170,0.25)",
+            borderColor: "rgba(0,212,170,0.45)", background: "rgba(0,212,170,0.12)",
           }}
         >
           <span

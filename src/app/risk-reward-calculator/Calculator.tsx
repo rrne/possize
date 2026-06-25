@@ -63,7 +63,7 @@ export default function RiskRewardCalculator() {
         <div className="mb-10">
           <div
             className="inline-flex items-center gap-2 font-mono text-xs tracking-widest uppercase border px-3 py-1.5 rounded-sm mb-6"
-            style={{ color: "var(--accent)", borderColor: "rgba(0,212,170,0.25)" }}
+            style={{ color: "var(--accent)", borderColor: "rgba(0,212,170,0.45)", background: "rgba(0,212,170,0.12)" }}
           >
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "var(--accent)" }} />
             Trade Planning

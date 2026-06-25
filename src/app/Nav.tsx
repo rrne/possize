@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 import { TOOLS, TOOL_ORDER } from "./seo/tools";
 
 // Universal top navigation: brand + a "Tools" dropdown listing every
@@ -12,8 +13,8 @@ export default function Nav({ current }: { current?: string }) {
   return (
     <header className="border-b" style={{ borderColor: "var(--border)", position: "relative", zIndex: 30 }}>
       <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <Link href="/" className="font-mono font-bold text-lg tracking-tight" style={{ color: "var(--accent)" }}>
-          PosSize
+        <Link href="/" aria-label="PosSize home">
+          <Logo />
         </Link>
 
         <nav className="flex items-center gap-5">

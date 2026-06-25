@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "./Logo";
 import { TOOLS, TOOL_ORDER } from "./seo/tools";
 
 // Shared site footer. Rendered globally in layout.tsx so every page —
@@ -12,8 +13,8 @@ export default function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
-            <Link href="/" className="font-mono font-bold text-lg" style={{ color: "var(--accent)" }}>
-              PosSize
+            <Link href="/" aria-label="PosSize home">
+              <Logo />
             </Link>
             <p className="text-xs mt-3 font-light leading-relaxed" style={{ color: "var(--muted)" }}>
               Free, no-signup trading calculators for serious traders.

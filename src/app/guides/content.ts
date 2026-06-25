@@ -26,6 +26,9 @@ export const GUIDE_ORDER = [
   "how-to-calculate-position-size",
   "what-is-a-good-risk-reward-ratio",
   "forex-lot-sizes-explained",
+  "what-is-leverage-in-trading",
+  "how-to-calculate-profit-and-loss",
+  "pip-value-explained",
 ] as const;
 
 export const GUIDES: Record<string, Guide> = {
@@ -204,5 +207,181 @@ export const GUIDES: Record<string, Guide> = {
       { q: "What lot size should a beginner use?", a: "Micro lots (1,000 units) are ideal for beginners. They keep pip value small (about $0.10), so you can trade real money and learn position sizing without risking large amounts per pip." },
     ],
     related: ["lot-size-calculator", "pip-calculator", "margin-calculator"],
+  },
+
+  "what-is-leverage-in-trading": {
+    slug: "what-is-leverage-in-trading",
+    title: "What Is Leverage in Trading? Margin, Risk & Examples",
+    metaTitle: "What Is Leverage in Trading? Margin & Risk Explained — PosSize",
+    description:
+      "Understand what leverage means in trading, how it relates to margin, and why high leverage magnifies losses as much as gains — with clear worked examples.",
+    category: "Leverage",
+    readTime: "6 min read",
+    updated: "June 26, 2026",
+    intro: [
+      "Leverage lets you control a large position with a relatively small amount of your own capital. A broker offering 30:1 leverage means $1,000 of your money can control a $30,000 position. It's the engine behind forex and CFD trading — and the single most common reason new accounts blow up.",
+      "This guide explains what leverage actually is, how it connects to margin, and how to use it without handing your account to the market.",
+    ],
+    sections: [
+      {
+        h: "Leverage and margin are two sides of one coin",
+        body: [
+          "Leverage is the ratio between your position size and the capital required to open it. Margin is that required capital expressed as money. They're linked by a simple relationship: margin percentage = 100 ÷ leverage. So 30:1 leverage needs about 3.33% margin, 100:1 needs 1%, and 10:1 needs 10%.",
+          "When you open a leveraged trade, the broker sets aside the required margin as collateral. It isn't a fee — you get it back when you close — but while the trade is open it reduces the free margin available to absorb losses.",
+        ],
+        cta: { label: "Calculate required margin", href: "/margin-calculator" },
+      },
+      {
+        h: "A worked example",
+        body: [
+          "Say you open one standard lot of EUR/USD (100,000 units) at 1.1000 with 30:1 leverage. The notional value is $110,000, so the required margin is $110,000 ÷ 30 ≈ $3,667.",
+          "Now the double-edged part: a 1% move in that position is worth about $1,100 — whether it goes your way or against you. On a $10,000 account, a couple of bad 1% swings on an over-leveraged position can wipe out a big chunk of your equity in minutes.",
+        ],
+      },
+      {
+        h: "Leverage doesn't change your risk — position size does",
+        body: [
+          "This is the key insight most beginners miss: leverage by itself doesn't determine how much you lose. Your risk is set by your position size and your stop-loss distance, not by the broker's leverage offer. A trader using 500:1 leverage but sizing positions to risk 1% per trade is far safer than one using 10:1 leverage who bets half the account on a single trade.",
+          "Use leverage as a tool to access the position size your risk plan calls for — never as an excuse to trade bigger than that plan allows.",
+        ],
+        cta: { label: "Size a position for fixed risk", href: "/position-size-calculator" },
+      },
+      {
+        h: "How to use leverage safely",
+        body: [
+          "Decide your dollar risk per trade first (typically 1–2% of the account), then size the position to fit it and let the required margin fall where it may — as long as it stays well below your balance. Keep a large free-margin cushion so normal volatility can't trigger a margin call.",
+          "Lower effective leverage almost always beats higher: it leaves room to be wrong, which is the whole game. The leverage your broker offers is a ceiling, not a target.",
+        ],
+        cta: { label: "Check your lot size", href: "/lot-size-calculator" },
+      },
+    ],
+    takeaways: [
+      "Leverage = position size ÷ capital required; margin % = 100 ÷ leverage.",
+      "Higher leverage magnifies gains and losses equally.",
+      "Your real risk comes from position size and stop distance, not the leverage ratio.",
+      "Keep effective leverage low and free margin high to survive volatility.",
+    ],
+    faqs: [
+      { q: "Is high leverage bad?", a: "High leverage isn't inherently bad, but it's dangerous in undisciplined hands because it makes over-sizing easy. Used with strict position sizing, a high available leverage simply gives flexibility; used to trade oversized, it's the fastest route to a blown account." },
+      { q: "What leverage should a beginner use?", a: "Beginners should focus on effective leverage — the size of their positions relative to their account — rather than the broker's maximum. Risking 1% per trade keeps effective leverage low regardless of the ratio offered." },
+      { q: "How is margin related to leverage?", a: "Margin is the capital required to open a leveraged position, and it equals the notional value divided by the leverage. As a percentage, margin = 100 ÷ leverage, so 50:1 leverage requires 2% margin." },
+    ],
+    related: ["margin-calculator", "lot-size-calculator", "position-size-calculator"],
+  },
+
+  "how-to-calculate-profit-and-loss": {
+    slug: "how-to-calculate-profit-and-loss",
+    title: "How to Calculate Profit and Loss on a Trade",
+    metaTitle: "How to Calculate Profit and Loss on a Trade (Formula) — PosSize",
+    description:
+      "Learn how to calculate profit and loss on long and short trades, including commissions and fees, with a simple formula and worked examples.",
+    category: "Trade Review",
+    readTime: "5 min read",
+    updated: "June 26, 2026",
+    intro: [
+      "Knowing your exact profit or loss on a trade sounds trivial — price went up, you made money — but commissions, fees, and direction (long vs short) trip up more traders than you'd think. Getting it right matters for tax records, performance tracking, and honest self-assessment.",
+      "This guide covers the simple P&L formula, how shorts differ from longs, and why net (after-fee) numbers are the only ones that matter.",
+    ],
+    sections: [
+      {
+        h: "The basic profit and loss formula",
+        body: [
+          "For a long trade (you buy, hoping price rises): Profit = (Exit Price − Entry Price) × Quantity − Fees. If you buy 100 shares at $50 and sell at $55 with $10 total commission, your profit is (55 − 50) × 100 − 10 = $490.",
+          "The quantity scales everything: the same $5 move is worth $500 on 100 shares but $5,000 on 1,000 shares. That's why position size, not just the price move, drives your results.",
+        ],
+        cta: { label: "Calculate exact P&L", href: "/profit-loss-calculator" },
+      },
+      {
+        h: "Short trades flip the direction",
+        body: [
+          "When you short (sell first, hoping to buy back cheaper), profit comes from price falling. The formula becomes: Profit = (Entry Price − Exit Price) × Quantity − Fees. Short 100 shares at $55 and cover at $50 with $10 fees: (55 − 50) × 100 − 10 = $490 profit.",
+          "If the price rises instead, the same formula returns a negative number — your loss. Shorting also carries borrowing costs and, in theory, unlimited risk if price keeps climbing, so risk controls matter even more.",
+        ],
+      },
+      {
+        h: "Always use net, after-fee numbers",
+        body: [
+          "Gross profit ignores the cost of trading; net profit subtracts every commission, spread, and fee. For active traders these costs add up fast and can turn an apparently winning system into a losing one. Track net P&L, and know your break-even — the price your trade must reach just to cover costs — before you enter.",
+        ],
+        cta: { label: "Find your break-even price", href: "/breakeven-calculator" },
+      },
+      {
+        h: "Turn P&L into better decisions",
+        body: [
+          "Reviewing P&L per trade reveals patterns your gut hides: maybe your winners are small and losers large (a risk/reward problem), or fees are eating scalping profits. Pair P&L with your planned risk on each trade to see whether you're actually following your plan.",
+        ],
+        cta: { label: "Plan risk/reward first", href: "/risk-reward-calculator" },
+      },
+    ],
+    takeaways: [
+      "Long P&L = (Exit − Entry) × Quantity − Fees.",
+      "Short P&L = (Entry − Exit) × Quantity − Fees.",
+      "Position size scales every dollar of profit and loss.",
+      "Only net, after-fee numbers reflect your real result.",
+    ],
+    faqs: [
+      { q: "How do I calculate profit on a trade?", a: "Multiply the price change by your quantity, then subtract all fees. For a long trade: (exit − entry) × shares − fees. For a short: (entry − exit) × shares − fees." },
+      { q: "Should I include fees in my P&L?", a: "Always. Gross P&L overstates your performance. Commissions, spreads, swaps and other fees come straight out of your result, and for frequent traders they're often the difference between a profitable and an unprofitable strategy." },
+      { q: "How is short-trade profit different?", a: "A short profits when price falls, so you subtract the exit from the entry instead of the other way around. Everything else — quantity scaling and fee deduction — works the same as a long trade." },
+    ],
+    related: ["profit-loss-calculator", "breakeven-calculator", "risk-reward-calculator"],
+  },
+
+  "pip-value-explained": {
+    slug: "pip-value-explained",
+    title: "Pip Value Explained: How Much Is a Pip Worth?",
+    metaTitle: "Pip Value Explained: How Much Is a Pip Worth? — PosSize",
+    description:
+      "What a pip is, how to calculate pip value for any pair and lot size, and why JPY pairs and account currency change the number.",
+    category: "Forex",
+    readTime: "5 min read",
+    updated: "June 26, 2026",
+    intro: [
+      "A pip is the smallest standard price move in forex, and pip value is what one pip is worth in money for your specific position. It's the bridge between a price chart (measured in pips) and your account (measured in dollars), so every risk calculation in forex runs through it.",
+      "This guide explains what a pip is, how to work out its value, and the two things that change the number: lot size and your account currency.",
+    ],
+    sections: [
+      {
+        h: "What exactly is a pip?",
+        body: [
+          "For most currency pairs, a pip is the fourth decimal place — 0.0001. If EUR/USD moves from 1.1000 to 1.1001, that's one pip. For pairs quoted in Japanese yen, a pip is the second decimal place — 0.01 — because of the way the yen is priced.",
+          "Pips let traders talk about price moves in a consistent, whole-number way (\"a 20-pip stop\") regardless of the pair, instead of juggling tiny decimals.",
+        ],
+      },
+      {
+        h: "How pip value is calculated",
+        body: [
+          "Pip value = pip size × position size in units, converted to your account currency. For a standard lot (100,000 units) of a USD-quoted pair, one pip is 0.0001 × 100,000 = $10. A mini lot gives $1 per pip and a micro lot $0.10.",
+          "That linear scaling is the whole point: bigger positions make each pip worth more, which is exactly how position size controls your risk per pip of stop-loss.",
+        ],
+        cta: { label: "Calculate exact pip value", href: "/pip-calculator" },
+      },
+      {
+        h: "Account currency and the quote currency",
+        body: [
+          "Pip value is first calculated in the pair's quote currency (the second currency), then converted to your account currency. For EUR/USD with a USD account, no conversion is needed — a pip is simply $10 per standard lot. For a pair like EUR/GBP with a USD account, the GBP pip value must be converted to USD using the current rate.",
+          "This is why the same pair can show slightly different pip values for traders with different account currencies — the conversion step changes the final number.",
+        ],
+      },
+      {
+        h: "Why pip value matters for risk",
+        body: [
+          "Pip value links your stop-loss (in pips) to your dollar risk. Risk in dollars = stop-loss in pips × pip value × lots. Rearranged, it tells you the lot size that keeps your risk fixed — the core of forex position sizing. Get pip value right and the rest of your risk math falls into place.",
+        ],
+        cta: { label: "Size your lots from pip risk", href: "/lot-size-calculator" },
+      },
+    ],
+    takeaways: [
+      "A pip is 0.0001 for most pairs, 0.01 for JPY pairs.",
+      "Pip value ≈ $10 / $1 / $0.10 per pip for standard / mini / micro lots (USD pairs).",
+      "Pip value is calculated in the quote currency, then converted to your account currency.",
+      "Dollar risk = stop pips × pip value × lots — the foundation of forex sizing.",
+    ],
+    faqs: [
+      { q: "How much is one pip worth?", a: "For a standard lot (100,000 units) of a USD-quoted pair, one pip is worth about $10. A mini lot is about $1 per pip and a micro lot about $0.10. Other quote currencies require a conversion to your account currency." },
+      { q: "Why is a pip different for JPY pairs?", a: "Yen pairs are quoted to two decimal places instead of four, so one pip is 0.01 rather than 0.0001. The pip-value calculation is otherwise identical." },
+      { q: "Does my account currency change pip value?", a: "Yes. Pip value is first found in the pair's quote currency, then converted to your account currency at the current exchange rate. Traders with different account currencies can see slightly different pip values for the same pair." },
+    ],
+    related: ["pip-calculator", "lot-size-calculator", "margin-calculator"],
   },
 };

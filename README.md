@@ -95,19 +95,49 @@ Open [http://localhost:3000](http://localhost:3000)
 ## SEO Strategy
 
 - Unique `title` and `description` metadata per page targeting high-volume keywords
-- Auto-generated `sitemap.xml` via Next.js App Router
+- `metadataBase` + per-page **canonical** URLs
+- **Structured data (JSON-LD)** on every page: `WebApplication`, `FAQPage`,
+  `BreadcrumbList`, plus `WebSite` / `Organization` / `ItemList` on the homepage
+  — targets Google rich results (FAQ accordions, sitelinks)
+- **Long-form content** on each calculator (how-to, formula, worked example,
+  FAQ) so the tool pages have real ranking surface instead of being thin
+- **Internal linking** between related calculators
+- Auto-generated `sitemap.xml` + branded OpenGraph image (`next/og`)
 - `robots.txt` configured for full crawl access
-- Submitted to Google Search Console for indexing
+
+---
+
+## Monetization & Analytics
+
+- **Google AdSense** — publisher script + `ads.txt` are wired in. Ad placements
+  exist on the homepage and every calculator via `src/app/AdUnit.tsx`.
+- **Cloudflare Web Analytics** — beacon injected in the root layout.
+
+> ⚠️ **To turn on ads:** open `src/app/AdUnit.tsx` and replace `AD_SLOT`
+> (`"0000000000"`) with a real **Display ad unit** slot id from your AdSense
+> dashboard (Ads → By ad unit → Display → copy `data-ad-slot`). Until then,
+> `AdUnit` renders nothing, so no empty ad boxes ship. Alternatively, enable
+> **Auto ads** in AdSense — that works with the existing layout script and
+> needs no slot id.
 
 ---
 
 ## Roadmap
 
-- [ ] Google AdSense monetization
+Shipped:
+
+- [x] Google AdSense integration (set the ad slot to go live — see above)
 - [x] Pip Calculator
 - [x] Margin Calculator
 - [x] Dark/Light mode toggle
 - [x] PWA support for mobile offline use
+- [x] Structured data + on-page content for SEO
+
+Next ideas for traffic & revenue:
+
+- [ ] More tools (Kelly Criterion, R-multiple tracker, breakeven calculator)
+- [ ] Shareable result URLs (query-param deep links) to earn backlinks
+- [ ] Blog / guides targeting long-tail keywords
 
 ---
 

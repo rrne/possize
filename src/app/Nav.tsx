@@ -16,6 +16,14 @@ export default function Nav({ current }: { current?: string }) {
           PosSize
         </Link>
 
+        <nav className="flex items-center gap-5">
+        <Link
+          href="/guides"
+          className="font-mono text-xs tracking-widest uppercase"
+          style={{ color: "var(--muted)" }}
+        >
+          Guides
+        </Link>
         <details className="nav-tools">
           <summary
             className="font-mono text-xs tracking-widest uppercase flex items-center gap-2 border rounded-sm px-3 py-2"
@@ -43,6 +51,7 @@ export default function Nav({ current }: { current?: string }) {
             })}
           </div>
         </details>
+        </nav>
       </div>
     </header>
   );

@@ -136,11 +136,14 @@ Shipped:
 - [x] Shareable result URLs (query-param deep links) + copy-link button
 - [x] Broker affiliate placement scaffolding
 
+- [x] Tool icons + category colours, hero stat strip, prominent nav
+- [x] Guides section (`/guides`) with long-form articles + Article schema
+
 Next ideas for traffic & revenue:
 
 - [ ] Activate broker affiliate links (sign up + flip `LIVE` in `BrokerCTA.tsx`)
 - [ ] More tools (Kelly Criterion, R-multiple tracker, drawdown calculator)
-- [ ] Blog / guides targeting long-tail keywords
+- [ ] More guides targeting long-tail keywords
 
 ---
 

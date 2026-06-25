@@ -1,5 +1,65 @@
 import Link from "next/link";
 import AdUnit from "./AdUnit";
+import { JsonLd } from "./seo/JsonLd";
+import { TOOLS, TOOL_ORDER } from "./seo/tools";
+
+const BASE = "https://www.possize.com";
+
+const homeFaqs = [
+  {
+    q: "Are these trading calculators really free?",
+    a: "Yes. Every PosSize calculator is completely free, requires no signup or account, and runs entirely in your browser. There are no paywalls or usage limits.",
+  },
+  {
+    q: "Which calculator should I use first?",
+    a: "Start with the Position Size Calculator — it determines how many shares or contracts to trade for a fixed risk, which is the foundation of risk management. Then use the Risk/Reward and Profit/Loss tools to plan and review each trade.",
+  },
+  {
+    q: "Do the calculators work for forex, stocks, and crypto?",
+    a: "Yes. The position size, risk/reward, profit/loss and compound tools work for any market. The Pip and Margin calculators are tailored to leveraged forex trading.",
+  },
+  {
+    q: "Is my data sent anywhere?",
+    a: "No. All calculations happen locally in your browser. PosSize does not collect or store the figures you enter.",
+  },
+];
+
+const homeStructuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "PosSize",
+    url: BASE,
+    description:
+      "Free, no-signup trading calculators: position size, risk/reward, compound interest, profit/loss, pip and margin.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "PosSize",
+    url: BASE,
+    logo: `${BASE}/icon-512.png`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: TOOL_ORDER.map((slug, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `${BASE}/${slug}`,
+      name: TOOLS[slug].name,
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: homeFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
 
 const tools = [
   {
@@ -200,6 +260,48 @@ export default function Home() {
           <AdUnit />
         </div>
       </section>
+
+      {/* SEO content + FAQ */}
+      <section className="max-w-3xl mx-auto px-6 pb-24 font-light leading-relaxed" style={{ color: "var(--muted)" }}>
+        <h2 className="font-mono font-bold text-2xl mb-4" style={{ color: "var(--text)", letterSpacing: "-0.01em" }}>
+          Free trading calculators for every step of a trade
+        </h2>
+        <p className="mb-4">
+          PosSize is a free, no-signup toolkit that helps traders make faster, more disciplined decisions. Before a
+          trade, the <Link href="/position-size-calculator" style={{ color: "var(--accent)" }}>position size calculator</Link>{" "}
+          tells you exactly how much to trade for a fixed risk, and the{" "}
+          <Link href="/risk-reward-calculator" style={{ color: "var(--accent)" }}>risk/reward calculator</Link> screens
+          whether a setup is worth taking. During and after, the{" "}
+          <Link href="/profit-loss-calculator" style={{ color: "var(--accent)" }}>profit/loss calculator</Link> shows
+          your true net result, while the{" "}
+          <Link href="/pip-calculator" style={{ color: "var(--accent)" }}>pip</Link> and{" "}
+          <Link href="/margin-calculator" style={{ color: "var(--accent)" }}>margin</Link> calculators handle leveraged
+          forex positions. The{" "}
+          <Link href="/compound-interest-calculator" style={{ color: "var(--accent)" }}>compound interest calculator</Link>{" "}
+          projects long-term account growth.
+        </p>
+        <p className="mb-10">
+          Every tool runs entirely in your browser, works on mobile, and is always free — no accounts, no paywalls, no
+          limits.
+        </p>
+
+        <h2 className="font-mono font-bold text-xl mb-4" style={{ color: "var(--text)", letterSpacing: "-0.01em" }}>
+          Frequently asked questions
+        </h2>
+        <div className="space-y-3">
+          {homeFaqs.map((f, i) => (
+            <details key={i} className="rounded-sm border p-5 group" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
+              <summary className="font-medium cursor-pointer list-none flex justify-between items-center gap-4" style={{ color: "var(--text)" }}>
+                {f.q}
+                <span className="font-mono text-lg shrink-0 transition-transform group-open:rotate-45" style={{ color: "var(--accent)" }}>+</span>
+              </summary>
+              <p className="mt-3 text-sm">{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <JsonLd data={homeStructuredData} />
 
       {/* Footer */}
       <footer

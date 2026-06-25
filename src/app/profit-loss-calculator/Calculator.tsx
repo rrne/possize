@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import AdUnit from "../AdUnit";
+import Nav from "../Nav";
 import { useState, useCallback } from "react";
 
 export default function ProfitLossCalculator() {
@@ -38,19 +38,7 @@ export default function ProfitLossCalculator() {
   
   return (
     <main className="min-h-screen" style={{ background: "var(--bg)" }}>
-      <header className="border-b" style={{ borderColor: "var(--border)" }}>
-        <div className="max-w-3xl mx-auto px-6 py-5 flex items-center justify-between">
-          <Link href="/" className="font-mono font-bold text-lg tracking-tight" style={{ color: "var(--accent)" }}>
-            PosSize
-          </Link>
-          <Link href="/" className="font-mono text-xs tracking-widest uppercase flex items-center gap-2" style={{ color: "var(--muted)" }}>
-            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            All Tools
-          </Link>
-        </div>
-      </header>
+      <Nav current="profit-loss-calculator" />
       
       <div className="max-w-3xl mx-auto px-6 py-12">
         {/* Title */}

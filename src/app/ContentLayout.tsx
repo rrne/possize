@@ -1,4 +1,4 @@
-import SiteHeader from "./SiteHeader";
+import Nav from "./Nav";
 
 // Shared shell for static content pages (legal, about, contact). Renders the
 // site header + a centered prose article. The global Footer (in layout.tsx)
@@ -14,7 +14,7 @@ export default function ContentLayout({
 }) {
   return (
     <main className="flex flex-col min-h-screen" style={{ background: "var(--bg)" }}>
-      <SiteHeader />
+      <Nav />
       <article className="max-w-3xl mx-auto px-6 py-14 w-full">
         <h1
           className="font-mono font-bold mb-3"

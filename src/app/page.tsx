@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Nav from "./Nav";
 import AdUnit from "./AdUnit";
 import BrokerCTA from "./BrokerCTA";
 import { JsonLd } from "./seo/JsonLd";
@@ -123,25 +124,7 @@ export default function Home() {
   return (
     <main className="min-h-screen" style={{ background: "var(--bg)" }}>
       {/* Header */}
-      <header
-        className="border-b"
-        style={{ borderColor: "var(--border)" }}
-      >
-        <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-          <span
-            className="font-mono font-bold text-lg tracking-tight"
-            style={{ color: "var(--accent)" }}
-          >
-            PosSize
-          </span>
-          <span
-            className="font-mono text-xs tracking-widest uppercase"
-            style={{ color: "var(--muted)" }}
-          >
-            Trading Tools
-          </span>
-        </div>
-      </header>
+      <Nav />
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16">

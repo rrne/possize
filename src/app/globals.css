@@ -69,6 +69,45 @@ input[type="number"] {
   font-weight: 600;
 }
 
+/* Tools dropdown nav (pure CSS via <details>) */
+.nav-tools {
+  position: relative;
+}
+.nav-tools > summary {
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  padding: 0.25rem 0;
+}
+.nav-tools > summary::-webkit-details-marker {
+  display: none;
+}
+.nav-tools[open] > summary .nav-chevron {
+  transform: rotate(180deg);
+}
+.nav-chevron {
+  transition: transform 0.2s ease;
+}
+.nav-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 250px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+  padding: 0.5rem;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  z-index: 50;
+}
+.nav-menu-item {
+  padding: 0.6rem 0.75rem;
+  border-radius: 2px;
+}
+.nav-menu-item:hover {
+  background: var(--surface2);
+}
+
 /* Theme toggle icon visibility — driven purely by the data-theme attribute */
 .theme-icon-moon {
   display: none;

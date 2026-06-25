@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AdUnit from "../AdUnit";
 import { useState, useCallback } from "react";
 
 export default function CompoundInterestCalculator() {
@@ -228,6 +229,11 @@ export default function CompoundInterestCalculator() {
           </>
         )}
         
+        {/* Ad */}
+        <div className="mt-8">
+          <AdUnit />
+        </div>
+
         <p className="text-center text-xs mt-8" style={{ color: "var(--muted)" }}>
           For educational purposes only. Not financial advice.
         </p>

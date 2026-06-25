@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AdUnit from "../AdUnit";
 import { useState, useCallback } from "react";
 
 const PAIRS = [
@@ -235,6 +236,11 @@ export default function PipCalculator() {
         )}
 
         {/* Footer */}
+        {/* Ad */}
+        <div className="mt-8">
+          <AdUnit />
+        </div>
+
         <p className="text-center text-xs mt-8" style={{ color: "var(--muted)" }}>
           For educational purposes only. Not financial advice.
         </p>

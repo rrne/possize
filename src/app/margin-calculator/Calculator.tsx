@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import AdUnit from "../AdUnit";
 import { useState, useCallback } from "react";
 
 const LEVERAGES = [1, 5, 10, 20, 30, 50, 100, 200, 500];
@@ -213,6 +214,11 @@ export default function MarginCalculator() {
         )}
 
         {/* Footer */}
+        {/* Ad */}
+        <div className="mt-8">
+          <AdUnit />
+        </div>
+
         <p className="text-center text-xs mt-8" style={{ color: "var(--muted)" }}>
           For educational purposes only. Not financial advice.
         </p>

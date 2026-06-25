@@ -1,4 +1,5 @@
 import Link from "next/link";
+import AdUnit from "./AdUnit";
 
 const tools = [
   {
@@ -192,6 +193,11 @@ export default function Home() {
               </div>
             </Link>
           ))}
+        </div>
+
+        {/* Ad */}
+        <div className="mt-12">
+          <AdUnit />
         </div>
       </section>
 

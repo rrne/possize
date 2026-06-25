@@ -18,9 +18,30 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "PosSize — Free Trading Calculators",
+  metadataBase: new URL("https://www.possize.com"),
+  title: {
+    default: "PosSize — Free Trading Calculators",
+    template: "%s",
+  },
   description:
     "Free trading tools for traders. Position size calculator, risk/reward calculator, compound interest calculator and more.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "PosSize",
+    url: "https://www.possize.com",
+    title: "PosSize — Free Trading Calculators",
+    description:
+      "Free, no-signup trading calculators: position size, risk/reward, compound interest, profit/loss, pip and margin.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PosSize — Free Trading Calculators",
+    description:
+      "Free, no-signup trading calculators for serious traders.",
+  },
   applicationName: "PosSize",
   appleWebApp: {
     capable: true,

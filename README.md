@@ -20,6 +20,7 @@ The project was built as both a functional product and a portfolio piece — des
 - **Risk/Reward Calculator** — Evaluate trade quality with R/R ratio and minimum win rate
 - **Compound Interest Calculator** — Visualize account growth over time with monthly return simulation
 - **Profit/Loss Calculator** — Calculate exact P&L including commissions for long and short trades
+- **Pip Calculator** — Calculate the monetary value of a pip for any forex pair, lot size and account currency
 
 ---
 
@@ -102,7 +103,8 @@ Open [http://localhost:3000](http://localhost:3000)
 ## Roadmap
 
 - [ ] Google AdSense monetization
-- [ ] Additional tools (Pip Calculator, Margin Calculator)
+- [x] Pip Calculator
+- [ ] Additional tools (Margin Calculator)
 - [ ] Dark/Light mode toggle
 - [ ] PWA support for mobile offline use
 

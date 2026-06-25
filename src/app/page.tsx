@@ -37,6 +37,15 @@ const tools = [
     tags: ["Trade Review"],
     accent: false,
   },
+  {
+    href: "/pip-calculator",
+    number: "05",
+    title: "Pip Calculator",
+    description:
+      "Calculate the monetary value of a single pip for any forex pair and lot size in your account currency.",
+    tags: ["Forex"],
+    accent: false,
+  },
 ];
 
 export default function Home() {

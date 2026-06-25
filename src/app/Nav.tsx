@@ -29,7 +29,7 @@ export default function Nav({ current, wide = false }: { current?: string; wide?
         </Link>
         <details className="nav-tools">
           <summary
-            className="font-mono text-xs tracking-widest uppercase flex items-center gap-2 border rounded-sm px-3 py-2"
+            className="font-mono text-xs tracking-widest uppercase flex items-center gap-2.5 border rounded-sm px-4 py-2.5"
             style={{ color: "var(--accent)", borderColor: "rgba(0,212,170,0.3)" }}
           >
             All Tools
@@ -38,17 +38,19 @@ export default function Nav({ current, wide = false }: { current?: string; wide?
             </svg>
           </summary>
           <div className="nav-menu" style={{ background: "var(--surface)", borderColor: "var(--border)" }}>
+            <div className="nav-menu-label font-mono">Calculators</div>
             {TOOL_ORDER.map((slug) => {
               const active = slug === current;
               return (
                 <Link
                   key={slug}
                   href={`/${slug}`}
-                  className="nav-menu-item font-mono text-sm flex items-center justify-between gap-4"
+                  className="nav-menu-item font-mono"
+                  data-active={active ? "true" : undefined}
                   style={{ color: active ? "var(--accent)" : "var(--text)" }}
                 >
-                  <span>{TOOLS[slug].name.replace(" Calculator", "")}</span>
-                  <span className="text-xs" style={{ color: "var(--muted)" }}>{TOOLS[slug].category}</span>
+                  <span className="nav-menu-name">{TOOLS[slug].name.replace(" Calculator", "")}</span>
+                  <span className="nav-menu-cat">{TOOLS[slug].category}</span>
                 </Link>
               );
             })}

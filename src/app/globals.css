@@ -118,21 +118,47 @@ input[type="number"] {
 .nav-menu {
   position: absolute;
   right: 0;
-  top: calc(100% + 10px);
-  min-width: 250px;
+  top: calc(100% + 12px);
+  min-width: 290px;
   border-width: 1px;
   border-style: solid;
-  border-radius: 2px;
-  padding: 0.5rem;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
+  padding: 0.4rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
   z-index: 50;
 }
+.nav-menu-label {
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  padding: 0.5rem 0.75rem 0.4rem;
+}
 .nav-menu-item {
-  padding: 0.6rem 0.75rem;
-  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  white-space: nowrap;
+  padding: 0.65rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.15s ease;
 }
 .nav-menu-item:hover {
   background: var(--surface2);
+}
+.nav-menu-item:hover .nav-menu-name {
+  color: var(--accent);
+}
+.nav-menu-name {
+  font-size: 0.875rem;
+}
+.nav-menu-cat {
+  font-size: 0.6875rem;
+  color: var(--faint);
+}
+.nav-menu-item[data-active="true"] .nav-menu-cat {
+  color: var(--accent);
 }
 
 /* Theme toggle icon visibility — driven purely by the data-theme attribute */

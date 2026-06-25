@@ -60,6 +60,11 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+        <Script
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "3ca027ed5db94f52af8003f6b7c1541a"}'
+          strategy="afterInteractive"
+        />
         {children}
         <ThemeToggle />
         <ServiceWorkerRegister />

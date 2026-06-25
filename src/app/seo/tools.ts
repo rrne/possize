@@ -22,6 +22,8 @@ export const TOOL_ORDER = [
   "profit-loss-calculator",
   "pip-calculator",
   "margin-calculator",
+  "lot-size-calculator",
+  "breakeven-calculator",
 ] as const;
 
 export const TOOLS: Record<string, ToolContent> = {
@@ -209,6 +211,66 @@ export const TOOLS: Record<string, ToolContent> = {
       { q: "How is required margin calculated?", a: "Required Margin = Notional Value ÷ Leverage. The notional value is your position size multiplied by the price (converted to your account currency). Higher leverage means a smaller margin requirement for the same position." },
       { q: "What leverage should I use?", a: "Lower leverage is safer because it leaves more free margin to absorb adverse moves. Many cautious traders keep effective leverage low even when the broker offers far more — high leverage magnifies losses just as much as gains." },
       { q: "What is a margin call?", a: "A margin call happens when losses erode your equity below the broker's maintenance requirement. The broker may ask you to add funds or automatically close positions. Keeping required margin well below your balance reduces this risk." },
+    ],
+  },
+  "lot-size-calculator": {
+    slug: "lot-size-calculator",
+    name: "Lot Size Calculator",
+    category: "Forex",
+    intro: [
+      "A lot size calculator tells you exactly how many lots to trade so a losing trade costs only a fixed, pre-decided amount of your account. In forex, position size is measured in lots — a standard lot is 100,000 units, a mini lot 10,000, and a micro lot 1,000 — and getting that number right is the core of survivable risk management.",
+      "Instead of guessing, you anchor every trade to three things you already know: how much you'll risk, how far away your stop-loss sits in pips, and the value of one pip. The calculator turns those into the precise lot size that keeps your risk constant trade after trade.",
+    ],
+    steps: [
+      "Enter your account balance — the capital you actually trade with.",
+      "Choose the percentage of the account you're willing to risk on this trade (most professionals use 1–2%).",
+      "Enter your stop-loss distance in pips — the gap between your entry and your stop.",
+      "Enter the pip value per standard lot for your pair (about $10 for most USD-quoted pairs). The calculator returns the exact lot size.",
+    ],
+    formula: {
+      expr: "Lots = (Account × Risk%) ÷ (Stop-Loss in pips × Pip Value per standard lot)",
+      note: "Multiply the result by 100,000 for units, or by 10 / 100 to express it in mini / micro lots.",
+    },
+    example: [
+      "You have a $10,000 account and risk 1% ($100) on a EUR/USD trade with a 25-pip stop. Pip value is $10 per standard lot.",
+      "Lots = $100 ÷ (25 × $10) = $100 ÷ $250 = 0.40 standard lots.",
+      "That's 40,000 units (4 mini lots). If price hits your stop 25 pips away, you lose exactly $100 — your planned 1%.",
+    ],
+    faqs: [
+      { q: "What is a lot in forex?", a: "A lot is the standard unit of trade size. One standard lot is 100,000 units of the base currency, a mini lot is 10,000 units (0.1 lots), and a micro lot is 1,000 units (0.01 lots). Lot size determines how much each pip move is worth." },
+      { q: "How do I calculate the correct lot size?", a: "Divide the cash you're willing to risk (account × risk%) by your stop-loss distance in pips multiplied by the pip value per lot. The result is the lot size that caps your loss at exactly your chosen risk." },
+      { q: "What pip value should I enter?", a: "For pairs quoted in USD (like EUR/USD or GBP/USD), one pip is worth about $10 per standard lot. For other pairs it varies with the exchange rate — use our pip calculator to find the exact figure, then bring it back here." },
+      { q: "Why does lot size matter so much?", a: "Trading too large is the fastest way to blow up an account. By sizing every position to a fixed percentage risk, a string of losses does only limited, predictable damage — letting you stay in the game long enough for your edge to play out." },
+    ],
+  },
+  "breakeven-calculator": {
+    slug: "breakeven-calculator",
+    name: "Break-Even Calculator",
+    category: "Trade Review",
+    intro: [
+      "A break-even calculator shows the exact price your trade must reach just to cover its costs — entry commission, exit commission, and any fees — before a single dollar of profit appears. Because every trade starts slightly underwater thanks to fees, knowing your true break-even keeps your targets and stops realistic.",
+      "It's especially useful for active traders and scalpers, where commissions are a meaningful slice of each move, and for anyone comparing brokers: lower fees pull your break-even closer to your entry, leaving more of every move as profit.",
+    ],
+    steps: [
+      "Enter the price at which you entered the trade.",
+      "Enter your position size — the number of shares, contracts, or units.",
+      "Add the total commission or fees you'll pay to enter and to exit.",
+      "The calculator returns the price you must reach to break even, and how far that is from your entry.",
+    ],
+    formula: {
+      expr: "Break-Even Price = Entry Price + (Total Fees ÷ Shares)   (for a long position)",
+      note: "For a short position the fees are subtracted instead: Break-Even = Entry − (Total Fees ÷ Shares).",
+    },
+    example: [
+      "You buy 200 shares at $50.00, paying $5 commission to enter and $5 to exit — $10 in total fees.",
+      "Break-Even = $50.00 + ($10 ÷ 200) = $50.00 + $0.05 = $50.05.",
+      "The stock must rise five cents just to cover costs; anything above $50.05 is profit, anything below is a loss.",
+    ],
+    faqs: [
+      { q: "What is a break-even price?", a: "It's the price at which your trade's profit is exactly zero — the point where the gain on the position precisely offsets all the commissions and fees you paid to open and close it. Above it (for a long) you profit; below it you lose." },
+      { q: "How do fees affect break-even?", a: "Every fee pushes your break-even further from your entry: higher costs mean the price has to move more before you're in profit. This is why low-commission brokers matter most for high-frequency or small-move strategies." },
+      { q: "Does break-even differ for short trades?", a: "Yes. For a short position you profit when price falls, so fees lower your break-even: you subtract the per-share fee from your entry. The price must drop below that level before the trade turns profitable." },
+      { q: "Should I set my stop at break-even?", a: "Many traders move their stop to break-even once a trade moves in their favour, locking in a no-loss outcome. Remember to use the true break-even that includes fees, not just your raw entry price, so a stopped-out trade really is flat." },
     ],
   },
 };

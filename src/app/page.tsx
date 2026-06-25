@@ -118,6 +118,24 @@ const tools = [
     tags: ["Leverage", "Forex"],
     accent: false,
   },
+  {
+    href: "/lot-size-calculator",
+    number: "07",
+    title: "Lot Size Calculator",
+    description:
+      "Find the exact number of lots to trade for a fixed risk, based on your stop-loss in pips.",
+    tags: ["Forex", "Risk Management"],
+    accent: false,
+  },
+  {
+    href: "/breakeven-calculator",
+    number: "08",
+    title: "Break-Even Calculator",
+    description:
+      "Find the price your trade must reach to cover all commissions and fees before making a profit.",
+    tags: ["Trade Review"],
+    accent: false,
+  },
 ];
 
 export default function Home() {

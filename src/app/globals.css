@@ -42,6 +42,33 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* Static content pages (privacy, terms, about, contact) */
+.prose-content h2 {
+  font-family: var(--font-mono), monospace;
+  font-weight: 700;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-content ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.prose-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 /* Theme toggle icon visibility — driven purely by the data-theme attribute */
 .theme-icon-moon {
   display: none;

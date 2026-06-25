@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { JsonLd } from "./JsonLd";
+import BrokerCTA from "../BrokerCTA";
+import AdUnit from "../AdUnit";
 import { TOOLS, TOOL_ORDER, type ToolContent } from "./tools";
 
 const BASE = "https://www.possize.com";
@@ -56,6 +58,9 @@ export default function ToolPage({ slug }: { slug: string }) {
           <p key={i} className="mb-4">{p}</p>
         ))}
 
+        {/* Broker affiliate slot — high-intent placement right after the intro */}
+        <BrokerCTA context="trade" />
+
         {/* How to use */}
         <h2 className="font-mono font-bold text-xl mt-10 mb-4" style={{ color: "var(--text)", letterSpacing: "-0.01em" }}>
           How to use it
@@ -89,6 +94,11 @@ export default function ToolPage({ slug }: { slug: string }) {
           {t.example.map((p, i) => (
             <p key={i} className={i < t.example.length - 1 ? "mb-3" : ""}>{p}</p>
           ))}
+        </div>
+
+        {/* In-content ad — placed after the worked example where engagement is high */}
+        <div className="my-10">
+          <AdUnit />
         </div>
 
         {/* FAQ */}

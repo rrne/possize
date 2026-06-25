@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AdUnit from "./AdUnit";
+import BrokerCTA from "./BrokerCTA";
 import { JsonLd } from "./seo/JsonLd";
 import { TOOLS, TOOL_ORDER } from "./seo/tools";
 
@@ -255,6 +256,9 @@ export default function Home() {
           ))}
         </div>
 
+        {/* Broker affiliate slot */}
+        <BrokerCTA context="start trading" />
+
         {/* Ad */}
         <div className="mt-12">
           <AdUnit />
@@ -302,29 +306,6 @@ export default function Home() {
       </section>
 
       <JsonLd data={homeStructuredData} />
-
-      {/* Footer */}
-      <footer
-        className="border-t"
-        style={{ borderColor: "var(--border)" }}
-      >
-        <div
-          className="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4"
-        >
-          <span
-            className="font-mono font-bold"
-            style={{ color: "var(--accent)" }}
-          >
-            PosSize
-          </span>
-          <span
-            className="font-mono text-xs"
-            style={{ color: "var(--muted)" }}
-          >
-            For educational purposes only. Not financial advice.
-          </span>
-        </div>
-      </footer>
     </main>
   );
 }

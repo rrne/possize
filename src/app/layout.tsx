@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import ThemeToggle from "./ThemeToggle";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
+import Footer from "./Footer";
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -87,6 +88,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         {children}
+        <Footer />
         <ThemeToggle />
         <ServiceWorkerRegister />
       </body>

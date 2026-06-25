@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/profit-loss-calculator" },
   title: "Profit Loss Calculator | Free Trading Tool — PosSize",
   description:
     "Free profit and loss calculator for traders. Calculate your exact profit or loss on any trade including commissions and fees for both long and short positions.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="profit-loss-calculator" />
+    </>
+  );
 }

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/compound-interest-calculator" },
   title: "Compound Interest Calculator | Free Trading Tool — PosSize",
   description:
     "Free compound interest calculator for traders. Visualize how your trading account grows over time with consistent monthly returns and compounding.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="compound-interest-calculator" />
+    </>
+  );
 }

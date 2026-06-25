@@ -219,9 +219,6 @@ export default function MarginCalculator() {
           <AdUnit />
         </div>
 
-        <p className="text-center text-xs mt-8" style={{ color: "var(--muted)" }}>
-          For educational purposes only. Not financial advice.
-        </p>
       </div>
     </main>
   );

@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/pip-calculator" },
   title: "Pip Calculator | Free Forex Pip Value Tool — PosSize",
   description:
     "Free forex pip calculator. Instantly calculate the pip value of any currency pair in your account currency based on lot size and exchange rate.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="pip-calculator" />
+    </>
+  );
 }

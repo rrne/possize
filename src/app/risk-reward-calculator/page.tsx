@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/risk-reward-calculator" },
   title: "Risk Reward Calculator | Free Trading Tool — PosSize",
   description:
     "Free risk/reward calculator for traders. Evaluate trade quality by calculating your risk/reward ratio and minimum win rate before entering a position.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="risk-reward-calculator" />
+    </>
+  );
 }

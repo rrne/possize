@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/margin-calculator" },
   title: "Margin Calculator | Free Leverage & Required Margin Tool — PosSize",
   description:
     "Free margin calculator for leveraged trading. Calculate the required margin and notional value for any position size, entry price and leverage.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="margin-calculator" />
+    </>
+  );
 }

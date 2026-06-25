@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Calculator from "./Calculator";
+import ToolPage from "../seo/ToolPage";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/position-size-calculator" },
   title: "Position Size Calculator | Free Trading Tool — PosSize",
   description:
     "Free position size calculator for traders. Calculate the optimal number of shares based on your account balance, risk percentage, entry price and stop loss.",
@@ -23,5 +25,10 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <Calculator />;
+  return (
+    <>
+      <Calculator />
+      <ToolPage slug="position-size-calculator" />
+    </>
+  );
 }

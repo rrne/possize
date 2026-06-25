@@ -110,6 +110,28 @@ label[for] {
   color: var(--c);
 }
 
+/* Display ad slot — centred, width-capped, clearly labelled */
+.ad-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 728px;
+  margin-inline: auto;
+}
+.ad-slot .adsbygoogle {
+  width: 100%;
+}
+.ad-label {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.5625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 0.4rem;
+  align-self: center;
+}
+
 /* Command palette (⌘K) */
 .cmdk-overlay {
   position: fixed;

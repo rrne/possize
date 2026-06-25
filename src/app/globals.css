@@ -96,6 +96,101 @@ input[type="number"] {
   color: var(--c);
 }
 
+/* Command palette (⌘K) */
+.cmdk-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1rem 1rem;
+  background: rgba(3, 7, 12, 0.6);
+  backdrop-filter: blur(4px);
+  animation: cmdk-fade 0.12s ease;
+}
+@keyframes cmdk-fade { from { opacity: 0 } to { opacity: 1 } }
+.cmdk-panel {
+  width: 100%;
+  max-width: 560px;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.cmdk-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  border-bottom: 1px solid;
+}
+.cmdk-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+}
+.cmdk-kbd {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+}
+.cmdk-list {
+  max-height: 56vh;
+  overflow-y: auto;
+  padding: 0.4rem;
+}
+.cmdk-empty {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.875rem;
+}
+.cmdk-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border-radius: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.cmdk-item[data-active="true"] {
+  background: var(--surface2);
+}
+.cmdk-item[data-active="true"] .cmdk-item-name {
+  color: var(--accent);
+}
+.cmdk-item-name { font-size: 0.9rem; }
+.cmdk-item-hint { font-size: 0.7rem; white-space: nowrap; }
+
+/* Nav search trigger */
+.nav-search {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.5rem 0.7rem;
+  color: var(--faint);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.nav-search:hover { border-color: var(--accent); color: var(--accent); }
+.nav-search-kbd {
+  font-family: var(--font-mono), monospace;
+  font-size: 0.625rem;
+}
+
 /* Tools dropdown nav (pure CSS via <details>) */
 .nav-tools {
   position: relative;

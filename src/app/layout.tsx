@@ -5,6 +5,7 @@ import "./globals.css";
 import ThemeToggle from "./ThemeToggle";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
 import Footer from "./Footer";
+import CommandPalette from "./CommandPalette";
 
 const spaceMono = Space_Mono({
   weight: ["400", "700"],
@@ -76,6 +77,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Speed up the third-party ad/analytics handshakes */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
+        <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body className={`${spaceMono.variable} ${dmSans.variable}`}>
@@ -92,6 +98,7 @@ export default function RootLayout({
         />
         {children}
         <Footer />
+        <CommandPalette />
         <ThemeToggle />
         <ServiceWorkerRegister />
       </body>

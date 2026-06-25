@@ -74,6 +74,11 @@ const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!==
 // applied — so analytics received no data.)
 const cfBeaconScript = `(function(){try{var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token":"3ca027ed5db94f52af8003f6b7c1541a"}');(document.head||document.documentElement).appendChild(s);}catch(e){}})();`;
 
+// Google Analytics 4. The gtag.js loader is a real async tag and the config
+// runs inline, so both end up in the static HTML and fire on every page.
+const GA_ID = "G-814YJ6K2DR";
+const gaScript = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}');`;
+
 export default function RootLayout({
   children,
 }: {
@@ -87,6 +92,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        {/* Google Analytics 4 */}
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} />
+        <script dangerouslySetInnerHTML={{ __html: gaScript }} />
         {/* AdSense loader — real async tag so the crawler/script picks up the publisher id */}
         <script
           async

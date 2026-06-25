@@ -46,6 +46,15 @@ const tools = [
     tags: ["Forex"],
     accent: false,
   },
+  {
+    href: "/margin-calculator",
+    number: "06",
+    title: "Margin Calculator",
+    description:
+      "Calculate the required margin and notional value for any leveraged position before you open it.",
+    tags: ["Leverage", "Forex"],
+    accent: false,
+  },
 ];
 
 export default function Home() {

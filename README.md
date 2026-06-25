@@ -21,6 +21,7 @@ The project was built as both a functional product and a portfolio piece — des
 - **Compound Interest Calculator** — Visualize account growth over time with monthly return simulation
 - **Profit/Loss Calculator** — Calculate exact P&L including commissions for long and short trades
 - **Pip Calculator** — Calculate the monetary value of a pip for any forex pair, lot size and account currency
+- **Margin Calculator** — Calculate required margin and notional value for any leveraged position
 
 ---
 
@@ -104,9 +105,9 @@ Open [http://localhost:3000](http://localhost:3000)
 
 - [ ] Google AdSense monetization
 - [x] Pip Calculator
-- [ ] Additional tools (Margin Calculator)
-- [ ] Dark/Light mode toggle
-- [ ] PWA support for mobile offline use
+- [x] Margin Calculator
+- [x] Dark/Light mode toggle
+- [x] PWA support for mobile offline use
 
 ---
 

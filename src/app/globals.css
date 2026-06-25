@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-:root {
+:root,
+[data-theme="dark"] {
   --bg: #090e14;
   --surface: #0f1923;
   --surface2: #162030;
@@ -12,10 +13,23 @@
   --muted: #5a7a96;
 }
 
+[data-theme="light"] {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface2: #eef3f9;
+  --border: #d6e1ec;
+  --accent: #008f76;
+  --accent2: #d9531e;
+  --danger: #d92020;
+  --text: #0d1b27;
+  --muted: #5d748c;
+}
+
 html, body {
-  background-color: #090e14;
-  color: #e8f0f7;
+  background-color: var(--bg);
+  color: var(--text);
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -26,4 +40,15 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+/* Theme toggle icon visibility — driven purely by the data-theme attribute */
+.theme-icon-moon {
+  display: none;
+}
+[data-theme="light"] .theme-icon-sun {
+  display: none;
+}
+[data-theme="light"] .theme-icon-moon {
+  display: inline-flex;
 }

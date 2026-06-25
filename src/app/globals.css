@@ -104,7 +104,8 @@ input[type="number"] {
   list-style: none;
   cursor: pointer;
   user-select: none;
-  padding: 0.25rem 0;
+  /* padding is supplied by the summary's utility classes (px-4 py-2.5);
+     this compound selector must NOT set padding or it would override them */
 }
 .nav-tools > summary::-webkit-details-marker {
   display: none;

@@ -3,7 +3,8 @@ import { MetadataRoute } from "next";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://possize.com";
+  // Must match the canonical host used everywhere else (metadataBase, robots).
+  const baseUrl = "https://www.possize.com";
   
   return [
     {

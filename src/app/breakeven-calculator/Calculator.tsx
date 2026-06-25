@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function BreakevenCalculator() {
@@ -10,6 +12,11 @@ export default function BreakevenCalculator() {
   const [buyFee, setBuyFee] = useState("5");
   const [sellFee, setSellFee] = useState("5");
   const [tradeType, setTradeType] = useState<"long" | "short">("long");
+
+  useDeepLink(
+    { entry, shares, buyFee, sellFee, tradeType },
+    { entry: setEntry, shares: setShares, buyFee: setBuyFee, sellFee: setSellFee, tradeType: (v) => setTradeType(v === "short" ? "short" : "long") },
+  );
 
   const calc = useCallback(() => {
     const e = parseFloat(entry) || 0;
@@ -186,6 +193,11 @@ export default function BreakevenCalculator() {
         )}
 
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 const PAIRS = [
@@ -21,6 +23,11 @@ export default function PipCalculator() {
   const [lots, setLots] = useState("1");
   const [accountCcy, setAccountCcy] = useState("USD");
   const [convRate, setConvRate] = useState("1");
+
+  useDeepLink(
+    { pair, lotType, lots, accountCcy, convRate },
+    { pair: setPair, lotType: setLotType, lots: setLots, accountCcy: setAccountCcy, convRate: setConvRate },
+  );
 
   const quoteCcy = pair.split("/")[1] ?? "USD";
 
@@ -224,6 +231,11 @@ export default function PipCalculator() {
 
         {/* Footer */}
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

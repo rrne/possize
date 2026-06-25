@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 const LEVERAGES = [1, 5, 10, 20, 30, 50, 100, 200, 500];
@@ -12,6 +14,11 @@ export default function MarginCalculator() {
   const [price, setPrice] = useState("1.1000");
   const [leverage, setLeverage] = useState("30");
   const [rate, setRate] = useState("1");
+
+  useDeepLink(
+    { balance, units, price, leverage, rate },
+    { balance: setBalance, units: setUnits, price: setPrice, leverage: setLeverage, rate: setRate },
+  );
 
   const calc = useCallback(() => {
     const u = parseFloat(units) || 0;
@@ -202,6 +209,11 @@ export default function MarginCalculator() {
 
         {/* Footer */}
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

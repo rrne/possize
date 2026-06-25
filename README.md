@@ -109,16 +109,16 @@ Open [http://localhost:3000](http://localhost:3000)
 
 ## Monetization & Analytics
 
-- **Google AdSense** — publisher script + `ads.txt` are wired in. Ad placements
-  exist on the homepage and every calculator via `src/app/AdUnit.tsx`.
+- **Google AdSense** — publisher script + `ads.txt` wired in; live ad slot set in
+  `src/app/AdUnit.tsx`. Placements: after each calculator result and in-content
+  within the SEO article (`src/app/seo/ToolPage.tsx`).
+- **Broker affiliate slots** — `src/app/BrokerCTA.tsx` reserves high-intent
+  placements (after the calculator intro + on the homepage). Set `LIVE = true`
+  and drop in tracked affiliate URLs to activate. Affiliate CPA is the primary
+  revenue lever for this niche.
 - **Cloudflare Web Analytics** — beacon injected in the root layout.
-
-> ⚠️ **To turn on ads:** open `src/app/AdUnit.tsx` and replace `AD_SLOT`
-> (`"0000000000"`) with a real **Display ad unit** slot id from your AdSense
-> dashboard (Ads → By ad unit → Display → copy `data-ad-slot`). Until then,
-> `AdUnit` renders nothing, so no empty ad boxes ship. Alternatively, enable
-> **Auto ads** in AdSense — that works with the existing layout script and
-> needs no slot id.
+- **Legal/compliance** — Privacy Policy, Terms, Risk Disclaimer, About and
+  Contact pages (required for AdSense approval + E-E-A-T on a finance/YMYL site).
 
 ---
 
@@ -126,17 +126,20 @@ Open [http://localhost:3000](http://localhost:3000)
 
 Shipped:
 
-- [x] Google AdSense integration (set the ad slot to go live — see above)
-- [x] Pip Calculator
-- [x] Margin Calculator
+- [x] Google AdSense integration (live ad slot + in-content placement)
+- [x] Pip, Margin, Lot Size & Break-Even calculators (8 tools total)
 - [x] Dark/Light mode toggle
 - [x] PWA support for mobile offline use
 - [x] Structured data + on-page content for SEO
+- [x] Legal pages (Privacy / Terms / Disclaimer / About / Contact)
+- [x] Universal Tools dropdown navigation
+- [x] Shareable result URLs (query-param deep links) + copy-link button
+- [x] Broker affiliate placement scaffolding
 
 Next ideas for traffic & revenue:
 
-- [ ] More tools (Kelly Criterion, R-multiple tracker, breakeven calculator)
-- [ ] Shareable result URLs (query-param deep links) to earn backlinks
+- [ ] Activate broker affiliate links (sign up + flip `LIVE` in `BrokerCTA.tsx`)
+- [ ] More tools (Kelly Criterion, R-multiple tracker, drawdown calculator)
 - [ ] Blog / guides targeting long-tail keywords
 
 ---

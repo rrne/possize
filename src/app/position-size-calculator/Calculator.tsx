@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function PositionSizeCalculator() {
@@ -12,6 +14,11 @@ export default function PositionSizeCalculator() {
   const [takeProfit, setTakeProfit] = useState("165");
   const [commission, setCommission] = useState("0");
   
+  useDeepLink(
+    { balance, riskPct, entry, stopLoss, takeProfit, commission },
+    { balance: setBalance, riskPct: setRiskPct, entry: setEntry, stopLoss: setStopLoss, takeProfit: setTakeProfit, commission: setCommission },
+  );
+
   const calc = useCallback(() => {
     const b = parseFloat(balance) || 0;
     const r = parseFloat(riskPct) || 0;
@@ -231,6 +238,11 @@ export default function PositionSizeCalculator() {
         
         {/* Footer */}
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

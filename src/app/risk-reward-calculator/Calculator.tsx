@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function RiskRewardCalculator() {
@@ -10,6 +12,11 @@ export default function RiskRewardCalculator() {
   const [takeProfit, setTakeProfit] = useState("165");
   const [shares, setShares] = useState("100");
   
+  useDeepLink(
+    { entry, stopLoss, takeProfit, shares },
+    { entry: setEntry, stopLoss: setStopLoss, takeProfit: setTakeProfit, shares: setShares },
+  );
+
   const calc = useCallback(() => {
     const e = parseFloat(entry) || 0;
     const sl = parseFloat(stopLoss) || 0;
@@ -172,6 +179,11 @@ export default function RiskRewardCalculator() {
         )}
         
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

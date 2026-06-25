@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function ProfitLossCalculator() {
@@ -11,6 +13,11 @@ export default function ProfitLossCalculator() {
   const [commission, setCommission] = useState("0");
   const [tradeType, setTradeType] = useState<"long" | "short">("long");
   
+  useDeepLink(
+    { entryPrice, exitPrice, shares, commission, tradeType },
+    { entryPrice: setEntryPrice, exitPrice: setExitPrice, shares: setShares, commission: setCommission, tradeType: (v) => setTradeType(v === "short" ? "short" : "long") },
+  );
+
   const calc = useCallback(() => {
     const e = parseFloat(entryPrice) || 0;
     const x = parseFloat(exitPrice) || 0;
@@ -188,6 +195,11 @@ export default function ProfitLossCalculator() {
         )}
         
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

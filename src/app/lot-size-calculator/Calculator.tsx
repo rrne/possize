@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function LotSizeCalculator() {
@@ -9,6 +11,11 @@ export default function LotSizeCalculator() {
   const [riskPct, setRiskPct] = useState("1");
   const [stopPips, setStopPips] = useState("25");
   const [pipValue, setPipValue] = useState("10");
+
+  useDeepLink(
+    { balance, riskPct, stopPips, pipValue },
+    { balance: setBalance, riskPct: setRiskPct, stopPips: setStopPips, pipValue: setPipValue },
+  );
 
   const calc = useCallback(() => {
     const b = parseFloat(balance) || 0;
@@ -194,6 +201,11 @@ export default function LotSizeCalculator() {
         )}
 
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

@@ -2,6 +2,8 @@
 
 import AdUnit from "../AdUnit";
 import Nav from "../Nav";
+import ShareBar from "../ShareBar";
+import { useDeepLink } from "../useDeepLink";
 import { useState, useCallback } from "react";
 
 export default function CompoundInterestCalculator() {
@@ -10,6 +12,11 @@ export default function CompoundInterestCalculator() {
   const [months, setMonths] = useState("12");
   const [monthlyContribution, setMonthlyContribution] = useState("0");
   
+  useDeepLink(
+    { principal, monthlyReturn, months, monthlyContribution },
+    { principal: setPrincipal, monthlyReturn: setMonthlyReturn, months: setMonths, monthlyContribution: setMonthlyContribution },
+  );
+
   const calc = useCallback(() => {
     const p = parseFloat(principal) || 0;
     const r = (parseFloat(monthlyReturn) || 0) / 100;
@@ -218,6 +225,11 @@ export default function CompoundInterestCalculator() {
         )}
         
         {/* Ad */}
+        {/* Share */}
+        <div className="mt-8">
+          <ShareBar />
+        </div>
+
         <div className="mt-8">
           <AdUnit />
         </div>

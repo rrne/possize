@@ -20,7 +20,7 @@
   --bg: #f4f7fb;
   --surface: #ffffff;
   --surface2: #eef3f9;
-  --border: #d6e1ec;
+  --border: #c7d5e3;
   --accent: #008f76;
   --accent2: #d9531e;
   --danger: #d92020;
@@ -60,6 +60,14 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+/* Tailwind v4 no longer defaults buttons to a pointer cursor — restore it. */
+button:not(:disabled),
+[role="button"],
+summary,
+label[for] {
+  cursor: pointer;
+}
+
 /* Static content pages (privacy, terms, about, contact) */
 .prose-content h2 {
   font-family: var(--font-mono), monospace;
@@ -94,6 +102,17 @@ input[type="number"] {
 }
 .tool-card:hover .tool-title {
   color: var(--c);
+}
+
+/* Category icon tile — subtle tint on dark, solid vivid chip on light so the
+   colour reads clearly against a white background instead of washing out. */
+.tool-icon {
+  background: color-mix(in srgb, var(--c) 14%, transparent);
+  color: var(--c);
+}
+[data-theme="light"] .tool-icon {
+  background: var(--c);
+  color: #08131c;
 }
 
 /* Command palette (⌘K) */

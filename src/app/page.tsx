@@ -227,8 +227,8 @@ export default function Home() {
             >
               <div className="flex items-start justify-between mb-5">
                 <span
-                  className="flex items-center justify-center rounded-md"
-                  style={{ width: 44, height: 44, background: `${tool.color}1f`, color: tool.color }}
+                  className="tool-icon flex items-center justify-center rounded-md"
+                  style={{ width: 44, height: 44 }}
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d={tool.icon} />

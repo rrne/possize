@@ -150,7 +150,7 @@ export default function Home() {
   return (
     <main className="min-h-screen" style={{ background: "var(--bg)" }}>
       {/* Header */}
-      <Nav />
+      <Nav wide />
 
       {/* Hero */}
       <section className="max-w-5xl mx-auto px-6 pt-20 pb-16">

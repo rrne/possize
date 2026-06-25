@@ -9,11 +9,13 @@ import { TOOLS, TOOL_ORDER } from "./seo/tools";
 //
 // Pure CSS dropdown via <details>/<summary> (same pattern as the FAQ
 // accordions) — no client JS, no hydration concerns, works in static export.
-export default function Nav({ current }: { current?: string }) {
+export default function Nav({ current, wide = false }: { current?: string; wide?: boolean }) {
   return (
     <header className="border-b" style={{ borderColor: "var(--border)", position: "relative", zIndex: 30 }}>
-      <div className="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between">
-        <Link href="/" aria-label="PosSize home">
+      <div
+        className={`${wide ? "max-w-5xl" : "max-w-3xl"} mx-auto px-6 py-5 flex items-center justify-between`}
+      >
+        <Link href="/" aria-label="PosSize home" className="inline-flex items-center">
           <Logo />
         </Link>
 

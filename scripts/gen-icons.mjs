@@ -61,16 +61,33 @@ function hex(h) {
   ];
 }
 
-function makeIcon(size, { bg, bar }) {
+function makeIcon(size, { bg, bar, round = 0 }) {
   const rgba = Buffer.alloc(size * size * 4);
   const [br, bgc, bb] = hex(bg);
   const [r2, g2, b2] = hex(bar);
-  // fill background
-  for (let i = 0; i < size * size; i++) {
-    rgba[i * 4] = br;
-    rgba[i * 4 + 1] = bgc;
-    rgba[i * 4 + 2] = bb;
-    rgba[i * 4 + 3] = 255;
+  const rad = round * size; // corner radius in px (0 = square)
+  // returns true when the pixel sits outside the rounded-rect (transparent)
+  const outside = (x, y) => {
+    if (rad <= 0) return false;
+    let cx = null, cy = null;
+    if (x < rad && y < rad) { cx = rad; cy = rad; }
+    else if (x >= size - rad && y < rad) { cx = size - rad - 1; cy = rad; }
+    else if (x < rad && y >= size - rad) { cx = rad; cy = size - rad - 1; }
+    else if (x >= size - rad && y >= size - rad) { cx = size - rad - 1; cy = size - rad - 1; }
+    if (cx === null) return false;
+    const dx = x - cx, dy = y - cy;
+    return dx * dx + dy * dy > rad * rad;
+  };
+  // fill background (rounded corners → transparent)
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const i = (y * size + x) * 4;
+      if (outside(x, y)) { rgba[i + 3] = 0; continue; }
+      rgba[i] = br;
+      rgba[i + 1] = bgc;
+      rgba[i + 2] = bb;
+      rgba[i + 3] = 255;
+    }
   }
   // three ascending bars, centered, within the safe zone (~62% width)
   const zone = size * 0.62;
@@ -109,10 +126,12 @@ function makeIcon(size, { bg, bar }) {
 }
 
 mkdirSync(OUT, { recursive: true });
-const dark = { bg: "#0f1923", bar: "#00d4aa" };
-const maskable = { bg: "#00d4aa", bar: "#0f1923" };
+// Match the logo: teal rounded badge with dark ascending bars.
+const badge = { bg: "#00cca4", bar: "#06121a", round: 0.25 };
+// Maskable must be full-bleed (the OS applies its own mask), so no rounding.
+const maskable = { bg: "#00cca4", bar: "#06121a" };
 
-writeFileSync(new URL("icon-192.png", OUT), makeIcon(192, dark));
-writeFileSync(new URL("icon-512.png", OUT), makeIcon(512, dark));
+writeFileSync(new URL("icon-192.png", OUT), makeIcon(192, badge));
+writeFileSync(new URL("icon-512.png", OUT), makeIcon(512, badge));
 writeFileSync(new URL("icon-maskable-512.png", OUT), makeIcon(512, maskable));
 console.log("Generated icon-192.png, icon-512.png, icon-maskable-512.png");

@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Space_Mono, DM_Sans } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 import ThemeToggle from "./ThemeToggle";
 import ServiceWorkerRegister from "./ServiceWorkerRegister";
@@ -69,6 +68,12 @@ export const viewport: Viewport = {
 // Runs before paint to apply the saved theme and avoid a flash of the wrong theme.
 const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
 
+// Inject the Cloudflare Web Analytics beacon as a real <script> element so the
+// beacon reads its own data-cf-beacon token via document.currentScript. (Using
+// next/script serialised it into the RSC stream, where the token was never
+// applied — so analytics received no data.)
+const cfBeaconScript = `(function(){try{var s=document.createElement('script');s.defer=true;s.src='https://static.cloudflareinsights.com/beacon.min.js';s.setAttribute('data-cf-beacon','{"token":"3ca027ed5db94f52af8003f6b7c1541a"}');(document.head||document.documentElement).appendChild(s);}catch(e){}})();`;
+
 export default function RootLayout({
   children,
 }: {
@@ -82,20 +87,16 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
         <link rel="dns-prefetch" href="https://googleads.g.doubleclick.net" />
         <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-      </head>
-      <body className={`${spaceMono.variable} ${dmSans.variable}`}>
-        <Script
+        {/* AdSense loader — real async tag so the crawler/script picks up the publisher id */}
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6037343600471239"
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
-        <Script
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "3ca027ed5db94f52af8003f6b7c1541a"}'
-          strategy="afterInteractive"
-        />
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script dangerouslySetInnerHTML={{ __html: cfBeaconScript }} />
+      </head>
+      <body className={`${spaceMono.variable} ${dmSans.variable}`}>
         {children}
         <Footer />
         <CommandPalette />

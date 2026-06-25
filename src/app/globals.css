@@ -39,6 +39,17 @@ html, body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/*
+ * Headings use the clean sans (DM Sans) for readability; Space Mono is kept
+ * only for the brand logo, small uppercase labels, numeric data values and
+ * formula/code blocks. The compound `h_.font-mono` selectors beat the
+ * `.font-mono` utility (higher specificity) so existing markup needs no edits.
+ */
+h1, h2, h3, h4,
+h1.font-mono, h2.font-mono, h3.font-mono, h4.font-mono {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;

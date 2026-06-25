@@ -104,15 +104,10 @@ label[for] {
   color: var(--c);
 }
 
-/* Category icon tile — subtle tint on dark, solid vivid chip on light so the
-   colour reads clearly against a white background instead of washing out. */
+/* Category icon tile — subtle colour tint on both themes (original look). */
 .tool-icon {
   background: color-mix(in srgb, var(--c) 14%, transparent);
   color: var(--c);
-}
-[data-theme="light"] .tool-icon {
-  background: var(--c);
-  color: #08131c;
 }
 
 /* Command palette (⌘K) */

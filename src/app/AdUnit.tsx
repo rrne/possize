@@ -8,7 +8,7 @@ const AD_CLIENT = "ca-pub-6037343600471239";
 // Replace "0000000000" with the real Ad unit slot id from your AdSense
 // dashboard (Ads → By ad unit → create a "Display" unit → copy data-ad-slot).
 // Changing this one value updates every placement on the site.
-export const AD_SLOT = "0000000000";
+export const AD_SLOT = "7271145618";
 
 declare global {
   interface Window {

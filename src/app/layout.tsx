@@ -59,6 +59,11 @@ export const metadata: Metadata = {
   other: {
     "google-adsense-account": "ca-pub-6037343600471239",
   },
+  verification: {
+    other: {
+      "naver-site-verification": "fb39d09c41594e6580ec8bed728232950c060179",
+    },
+  },
 };
 
 export const viewport: Viewport = {

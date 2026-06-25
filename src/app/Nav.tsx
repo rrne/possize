@@ -17,8 +17,11 @@ export default function Nav({ current }: { current?: string }) {
         </Link>
 
         <details className="nav-tools">
-          <summary className="font-mono text-xs tracking-widest uppercase flex items-center gap-2" style={{ color: "var(--muted)" }}>
-            Tools
+          <summary
+            className="font-mono text-xs tracking-widest uppercase flex items-center gap-2 border rounded-sm px-3 py-2"
+            style={{ color: "var(--accent)", borderColor: "rgba(0,212,170,0.3)" }}
+          >
+            All Tools
             <svg className="nav-chevron w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
             </svg>

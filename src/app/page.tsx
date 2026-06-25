@@ -66,74 +66,82 @@ const homeStructuredData = [
 const tools = [
   {
     href: "/position-size-calculator",
-    number: "01",
     title: "Position Size Calculator",
     description:
       "Calculate the optimal number of shares or contracts based on your account size and risk tolerance.",
     tags: ["Risk Management", "Essential"],
+    color: "#00d4aa",
+    icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3",
     accent: true,
   },
   {
     href: "/risk-reward-calculator",
-    number: "02",
     title: "Risk/Reward Calculator",
     description:
       "Evaluate trade quality by calculating risk/reward ratio and expected value before entering a position.",
     tags: ["Trade Planning"],
+    color: "#38bdf8",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
     accent: false,
   },
   {
     href: "/compound-interest-calculator",
-    number: "03",
     title: "Compound Interest Calculator",
     description:
       "Visualize how your trading account grows over time with consistent returns and compounding.",
     tags: ["Growth", "Long-term"],
+    color: "#84cc16",
+    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
     accent: false,
   },
   {
     href: "/profit-loss-calculator",
-    number: "04",
     title: "Profit / Loss Calculator",
     description:
       "Quickly calculate profit or loss on any trade including commissions and fees.",
     tags: ["Trade Review"],
+    color: "#fb923c",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     accent: false,
   },
   {
     href: "/pip-calculator",
-    number: "05",
     title: "Pip Calculator",
     description:
       "Calculate the monetary value of a single pip for any forex pair and lot size in your account currency.",
     tags: ["Forex"],
+    color: "#a78bfa",
+    icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     accent: false,
   },
   {
     href: "/margin-calculator",
-    number: "06",
     title: "Margin Calculator",
     description:
       "Calculate the required margin and notional value for any leveraged position before you open it.",
     tags: ["Leverage", "Forex"],
+    color: "#fbbf24",
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
     accent: false,
   },
   {
     href: "/lot-size-calculator",
-    number: "07",
     title: "Lot Size Calculator",
     description:
       "Find the exact number of lots to trade for a fixed risk, based on your stop-loss in pips.",
     tags: ["Forex", "Risk Management"],
+    color: "#22d3ee",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10",
     accent: false,
   },
   {
     href: "/breakeven-calculator",
-    number: "08",
     title: "Break-Even Calculator",
     description:
       "Find the price your trade must reach to cover all commissions and fees before making a profit.",
     tags: ["Trade Review"],
+    color: "#f472b6",
+    icon: "M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z",
     accent: false,
   },
 ];
@@ -179,6 +187,28 @@ export default function Home() {
           Every calculation you need before, during, and after a trade.
           Fast, accurate, and always free.
         </p>
+
+        {/* Trust / stats strip */}
+        <div className="flex flex-wrap gap-x-10 gap-y-5 mt-12">
+          {[
+            { n: "8", label: "Free calculators" },
+            { n: "0", label: "Signups required" },
+            { n: "100%", label: "Runs in your browser" },
+            { n: "∞", label: "Uses, no limits" },
+          ].map((s) => (
+            <div key={s.label} className="flex flex-col">
+              <span
+                className="font-mono font-bold leading-none"
+                style={{ fontSize: "clamp(24px, 4vw, 32px)", color: "var(--accent)" }}
+              >
+                {s.n}
+              </span>
+              <span className="text-xs mt-2 uppercase tracking-wider" style={{ color: "var(--muted)" }}>
+                {s.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* Tools Grid */}
@@ -188,22 +218,21 @@ export default function Home() {
             <Link
               key={tool.href}
               href={tool.href}
-              className="group block p-8 rounded-sm border transition-all duration-200"
+              className="tool-card group block p-7 rounded-sm border transition-all duration-200"
               style={{
-                background: tool.accent
-                  ? "linear-gradient(135deg, rgba(0,212,170,0.06) 0%, rgba(0,212,170,0.02) 100%)"
-                  : "var(--surface)",
-                borderColor: tool.accent
-                  ? "rgba(0,212,170,0.2)"
-                  : "var(--border)",
-              }}
+                background: "var(--surface)",
+                borderColor: "var(--border)",
+                ["--c"]: tool.color,
+              } as React.CSSProperties}
             >
-              <div className="flex items-start justify-between mb-6">
+              <div className="flex items-start justify-between mb-5">
                 <span
-                  className="font-mono text-xs tracking-widest"
-                  style={{ color: "var(--muted)" }}
+                  className="flex items-center justify-center rounded-md"
+                  style={{ width: 44, height: 44, background: `${tool.color}1f`, color: tool.color }}
                 >
-                  {tool.number}
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.6} d={tool.icon} />
+                  </svg>
                 </span>
                 <svg
                   className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1"
@@ -212,21 +241,13 @@ export default function Home() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={1.5}
-                    d="M7 17L17 7M17 7H7M17 7v10"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
                 </svg>
               </div>
 
               <h2
-                className="font-mono font-bold text-lg mb-3 transition-colors duration-200"
-                style={{
-                  color: tool.accent ? "var(--accent)" : "var(--text)",
-                  letterSpacing: "-0.01em",
-                }}
+                className="tool-title font-mono font-bold text-lg mb-3 transition-colors duration-200"
+                style={{ color: "var(--text)", letterSpacing: "-0.01em" }}
               >
                 {tool.title}
               </h2>

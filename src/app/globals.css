@@ -69,6 +69,15 @@ input[type="number"] {
   font-weight: 600;
 }
 
+/* Tool cards — category-coloured hover */
+.tool-card:hover {
+  border-color: var(--c);
+  transform: translateY(-2px);
+}
+.tool-card:hover .tool-title {
+  color: var(--c);
+}
+
 /* Tools dropdown nav (pure CSS via <details>) */
 .nav-tools {
   position: relative;

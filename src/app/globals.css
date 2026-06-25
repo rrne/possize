@@ -9,8 +9,11 @@
   --accent: #00d4aa;
   --accent2: #ff6b35;
   --danger: #ff4444;
-  --text: #e8f0f7;
-  --muted: #5a7a96;
+  --text: #eef4fa;
+  /* Readable secondary text (≈7:1 on --bg) for body copy/descriptions */
+  --muted: #93a9be;
+  /* Faint tone for tiny labels / decorative captions only */
+  --faint: #6883a0;
 }
 
 [data-theme="light"] {
@@ -22,13 +25,17 @@
   --accent2: #d9531e;
   --danger: #d92020;
   --text: #0d1b27;
-  --muted: #5d748c;
+  --muted: #475c6f;
+  --faint: #6a7e91;
 }
 
 html, body {
   background-color: var(--bg);
   color: var(--text);
   min-height: 100vh;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
